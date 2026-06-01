@@ -19,26 +19,27 @@ from clicbot_unofficial import ClicBot, discover_first
 
 ## Connecting to the robot
 
-The robot communicates over TCP. Your computer and the robot must be on the **same IP network** first.
+The robot communicates over TCP. Your computer and the robot must be on the **same IP network**.
 
-### Option 1 — Existing WiFi (robot scans QR code)
+There are two network setups:
 
-Generate a QR code that encodes your WiFi credentials and a UDP return address, then hold it in front of the robot's camera. The robot scans it, joins your network, and announces its TCP endpoint back to your machine:
+### WiFi (recommended)
+
+The robot stores WiFi credentials and reconnects automatically on every boot. **The QR code step is only needed once** when joining a new network for the first time.
+
+**First time — provision the robot onto your WiFi:**
 
 ```python
 from clicbot_unofficial import build_qr_content, show_qr_code, wait_for_robot
 
 content = build_qr_content("MyWifi", "secret")
-show_qr_code(content)                              # terminal (default)
-show_qr_code(content, mode="file", file="qr.png") # or save as PNG
-show_qr_code(content, mode="text")                 # or print raw URI
+show_qr_code(content)        # terminal (default), or mode="file"/"text"
 device = wait_for_robot()
-# device.ip / device.port are now known
 ```
 
-### Option 2 — Robot hotspot
+Hold the QR code in front of the robot's camera. It joins your network, announces its address, and remembers the credentials from then on.
 
-The robot exposes its own WiFi access point. Connect your computer to it, then use UDP discovery to find the robot's IP, or connect directly if you know it:
+**Already provisioned — just discover it:**
 
 ```python
 from clicbot_unofficial import discover_first
@@ -46,9 +47,13 @@ from clicbot_unofficial import discover_first
 device = discover_first(timeout=5.0)
 ```
 
-### Direct TCP (known IP)
+### Robot hotspot
 
-Once you have the IP and port from either method above:
+The robot can also expose its own WiFi access point. Connect your computer to it, then discover the robot via UDP or connect directly to its known IP.
+
+### Connecting
+
+Once you have the device from either method above:
 
 ```python
 from clicbot_unofficial import ClicBot, BrainState
