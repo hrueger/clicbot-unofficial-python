@@ -6,9 +6,10 @@ This example also shows how to walk the module tree: every module
 has a .parent and a .children list, so you can navigate the physical
 structure the robot reported.
 """
+
 import time
-from clicbot_unofficial import ClicBot, BrainState, discover_first
-from clicbot_unofficial.modules import ServoJointModule
+
+from clicbot_unofficial import BrainState, ClicBot, discover_first
 
 
 def main() -> None:
@@ -34,7 +35,8 @@ def main() -> None:
     # Tree traversal — same modules, reached via parent/children links
     print(f"\nBrain's direct children: {bot.root.children}")
     for joint in joints:
-        print(f"  joint id={joint.id}  parent={type(joint.parent).__name__} id={joint.parent.id}  children={joint.children}")
+        parent = joint.parent
+        print(f"  joint id={joint.id}  parent={type(parent).__name__} id={parent.id}  children={joint.children}")
 
     print("\nMoving all joints to 0°...")
     for joint in joints:

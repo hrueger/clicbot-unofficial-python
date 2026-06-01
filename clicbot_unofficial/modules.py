@@ -1,5 +1,7 @@
 """ClicBot module classes — the structure API."""
+
 from __future__ import annotations
+
 from typing import TYPE_CHECKING, List, Optional
 
 from ._structure import ModuleType, RawModuleInfo
@@ -44,9 +46,7 @@ class ClicBotModule:
     @property
     def _cmd(self) -> "ClicBot":
         if self._bot is None:
-            raise RuntimeError(
-                f"Module {self.id} is not bound to a bot — call request_structure() first"
-            )
+            raise RuntimeError(f"Module {self.id} is not bound to a bot — call request_structure() first")
         return self._bot
 
     # ── Shared controls ────────────────────────────────────────────────────────

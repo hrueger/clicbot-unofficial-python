@@ -1,5 +1,7 @@
 """Structure packet parsing and angle encoding."""
+
 from __future__ import annotations
+
 import struct
 from dataclasses import dataclass, field
 from enum import IntEnum
@@ -45,9 +47,16 @@ def encode_angle(degrees: float) -> int:
 
 def parse_structure(data: bytes) -> List[RawModuleInfo]:
     root = RawModuleInfo(
-        module_id=0, depth=0, port_index=0, type=ModuleType.BRAIN,
-        position=0, direction=0, parallel=False, angle=0.0,
-        parent_id=0, parent_port_index=0,
+        module_id=0,
+        depth=0,
+        port_index=0,
+        type=ModuleType.BRAIN,
+        position=0,
+        direction=0,
+        parallel=False,
+        angle=0.0,
+        parent_id=0,
+        parent_port_index=0,
     )
     result = [root]
 
@@ -112,9 +121,7 @@ def to_mermaid(structure: List[RawModuleInfo]) -> str:
             parent = structure[m.parent_id]
             parent_ports = _PORT_COUNTS.get(parent.type, 1)
             parent_port = m.parent_port_index % parent_ports
-            lines.append(
-                f"    {parent.module_id}_conn{parent_port} --> {m.module_id}_conn{m.port_index}"
-            )
+            lines.append(f"    {parent.module_id}_conn{parent_port} --> {m.module_id}_conn{m.port_index}")
     return "\n".join(lines)
 
 

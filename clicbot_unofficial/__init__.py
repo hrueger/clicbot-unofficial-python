@@ -1,6 +1,16 @@
 """ClicBot Python SDK — motor control and structure API."""
+
+from ._structure import ModuleType, to_mermaid
 from .clicbot import BrainState, ClicBot
-from .discovery import DiscoveredDevice, discover_all, discover_first, discover_via_qrcode, build_qr_content, show_qr_code, wait_for_robot
+from .discovery import (
+    DiscoveredDevice,
+    build_qr_content,
+    discover_all,
+    discover_first,
+    discover_via_qrcode,
+    show_qr_code,
+    wait_for_robot,
+)
 from .modules import (
     BrainModule,
     ClicBotModule,
@@ -8,7 +18,6 @@ from .modules import (
     ServoJointModule,
     ServoWheelModule,
 )
-from ._structure import ModuleType, to_mermaid
 
 __all__ = [
     "ClicBot",

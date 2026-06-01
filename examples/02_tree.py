@@ -12,7 +12,8 @@ Example output:
           ServoWheelModule  id=3
       ServoJointModule  id=4
 """
-from clicbot_unofficial import ClicBot, BrainState, discover_first
+
+from clicbot_unofficial import BrainState, ClicBot, discover_first
 from clicbot_unofficial.modules import ClicBotModule
 
 

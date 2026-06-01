@@ -1,5 +1,7 @@
 """UDP discovery — find ClicBot robots on the local network."""
+
 from __future__ import annotations
+
 import json
 import socket
 import struct
@@ -109,6 +111,7 @@ def discover_first(timeout: float = 5.0) -> DiscoveredDevice:
 
 
 # ── QR-code connection ─────────────────────────────────────────────────────────
+
 
 def _get_local_ip() -> str:
     with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as s:

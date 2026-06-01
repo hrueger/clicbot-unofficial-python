@@ -16,3 +16,13 @@ build-backend = "hatchling.build"
 
 [project.urls]
 "Source" = "https://github.com/hrueger/unofficial-clicbot-sdk-python"
+
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"

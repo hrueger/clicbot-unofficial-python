@@ -2,8 +2,10 @@
 Connect to a robot, switch to custom mode, spin all wheel modules
 forward for 2 seconds, then stop.
 """
+
 import time
-from clicbot_unofficial import ClicBot, BrainState, discover_first
+
+from clicbot_unofficial import BrainState, ClicBot, discover_first
 
 
 def main() -> None:

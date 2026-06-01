@@ -1,5 +1,7 @@
 """TCP socket with automatic heartbeat, backed by a background thread."""
+
 from __future__ import annotations
+
 import socket
 import struct
 import threading

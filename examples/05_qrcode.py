@@ -11,9 +11,11 @@ Optional env vars:
     QR_OUTPUT  — "terminal" (default), "file", or "text"
     QR_FILE    — output path when QR_OUTPUT=file (default "qrcode.png")
 """
+
 import os
 import time
-from clicbot_unofficial import ClicBot, BrainState, build_qr_content, show_qr_code, wait_for_robot
+
+from clicbot_unofficial import BrainState, ClicBot, build_qr_content, show_qr_code, wait_for_robot
 
 
 def on_battery(level):

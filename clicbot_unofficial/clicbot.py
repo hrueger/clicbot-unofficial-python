@@ -1,5 +1,7 @@
 """ClicBot — main SDK entry point."""
+
 from __future__ import annotations
+
 import json
 import struct
 import threading
@@ -19,8 +21,9 @@ from .modules import (
 
 class BrainState(IntEnum):
     """Robot brain operating mode."""
-    CUSTOM = 1        # Custom / interactive control — send this to enable motion commands
-    OFFICIAL = 2      # Built-in program mode
+
+    CUSTOM = 1  # Custom / interactive control — send this to enable motion commands
+    OFFICIAL = 2  # Built-in program mode
     INACTIVE_3 = 3
     PAIRING_ACCEPT = 4
     PAIRING_OR_UPDATING = 5
@@ -223,10 +226,7 @@ class ClicBot:
 
     def lock_all(self, locked: bool = True) -> None:
         """Lock or unlock all servo and wheel modules in the current structure."""
-        ids = [
-            m.module_id for m in self._raw_structure
-            if m.module_id > 0 and m.type != ModuleType.DISTANCE_BAR
-        ]
+        ids = [m.module_id for m in self._raw_structure if m.module_id > 0 and m.type != ModuleType.DISTANCE_BAR]
         self.lock_many(ids, locked)
 
     def full_stop(self, lock: bool = False) -> None:

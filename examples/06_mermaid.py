@@ -5,11 +5,13 @@ Usage:
     IP=192.168.x.x python3 examples/06_mermaid.py
     IP=192.168.x.x OUT=my-robot.md python3 examples/06_mermaid.py
 """
+
 import os
-from clicbot_unofficial import ClicBot, BrainState, to_mermaid, discover_first
+
+from clicbot_unofficial import BrainState, ClicBot, discover_first, to_mermaid
 
 HOST = os.environ.get("IP")
-OUT  = os.environ.get("OUT", "structure.md")
+OUT = os.environ.get("OUT", "structure.md")
 
 
 def main() -> None:
