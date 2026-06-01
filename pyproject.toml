@@ -1,0 +1,18 @@
+[project]
+name = "clicbot-unofficial"
+version = "1.0.1"
+description = "Unofficial Python library for controlling ClicBot modular robots over TCP/UDP"
+readme = "README.md"
+license = { file = "LICENSE.md" }
+requires-python = ">=3.10"
+dependencies = ["qrcode"]
+
+[project.optional-dependencies]
+png = ["qrcode[pil]"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project.urls]
+"Source" = "https://github.com/hrueger/unofficial-clicbot-sdk-python"
