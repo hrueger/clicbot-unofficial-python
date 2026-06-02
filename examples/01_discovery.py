@@ -13,7 +13,7 @@ def main() -> None:
         )
         return
 
-    print(f"  {device.name}  {device.ip}:{device.port}  brain_state={device.brain_state}")
+    print(f"  {device.name}  {device.ip}:{device.port}")
 
 
 main()
