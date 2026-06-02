@@ -93,6 +93,10 @@ class ServoJointModule(ClicBotModule):
         """Stop this joint's rotation (sends rotateStart with speed=0)."""
         self._cmd.rotate_start(self.id, True, 0)
 
+    def set_push_rotate(self, enabled: bool) -> None:
+        """Enable or disable push-rotate mode for this joint."""
+        self._cmd.set_push_rotate(self.id, enabled)
+
 
 class DistanceBarModule(ClicBotModule):
     """A passive distance-bar connector module."""

@@ -38,6 +38,10 @@ class CMD:
     TCP_SERVO_MOVE_REQUEST = 1008
     TCP_SERVO_MOVE_RESPONSE = 1009
 
+    # Push-rotate mode (joint control by hand)
+    TCP_PUSH_ROTATE_REQUEST = 1010
+    TCP_PUSH_ROTATE_RESPONSE = 1011
+
     # Module lock / unlock
     TCP_MODULE_LOCK_REQUEST = 1016
     TCP_MODULE_LOCK_RESPONSE = 1017

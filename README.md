@@ -111,6 +111,9 @@ bot.rotate_start(module_id, forward=True, speed=60)
 bot.rotate_start_many([{"module_id": 2, "forward": True, "speed": 60}])
 bot.rotate_stop()           # stop all rotating modules
 
+# Push-rotate mode
+bot.set_push_rotate(module_id, enabled=True)
+
 # Lock / unlock
 bot.lock(module_id)
 bot.unlock(module_id)
@@ -138,6 +141,7 @@ Each module exposes the same controls directly:
 joint.rotate_to(90, speed=50)
 joint.rotate_start(forward=True, speed=60)
 joint.rotate_stop()
+joint.set_push_rotate(enabled=True)
 joint.lock()
 joint.unlock()
 wheel.rotate_start(forward=False, speed=80)
@@ -156,24 +160,24 @@ bot.on_close            = lambda: print("disconnected")
 bot.on_error            = lambda exc: print("error:", exc)
 ```
 
-| Attribute              | Arguments                        | Description                |
-| ---------------------- | -------------------------------- | -------------------------- |
-| `on_close`             | —                                | Connection closed          |
-| `on_error`             | `exc`                            | Socket error               |
-| `on_battery`           | `level` (0.0–1.0)                | Battery level update       |
-| `on_structure_changed` | `modules` (dict[id, Module])     | Module tree updated        |
-| `on_angles`            | `angles` (dict[id, float])       | Joint angle update         |
+| Attribute              | Arguments                    | Description          |
+| ---------------------- | ---------------------------- | -------------------- |
+| `on_close`             | —                            | Connection closed    |
+| `on_error`             | `exc`                        | Socket error         |
+| `on_battery`           | `level` (0.0–1.0)            | Battery level update |
+| `on_structure_changed` | `modules` (dict[id, Module]) | Module tree updated  |
+| `on_angles`            | `angles` (dict[id, float])   | Joint angle update   |
 
 ## Examples
 
-| File                       | Description                               |
-| -------------------------- | ----------------------------------------- |
-| `examples/01_discovery.py` | Scan the network and list all robots      |
-| `examples/02_tree.py`      | Print the module tree                     |
-| `examples/03_servo.py`     | Move servo joints to 0° then 90°          |
-| `examples/04_rotate.py`    | Spin wheel modules for 2 seconds          |
-| `examples/05_qrcode.py`    | Connect a new robot via QR code           |
-| `examples/06_mermaid.py`   | Save module tree as a Mermaid diagram     |
+| File                       | Description                           |
+| -------------------------- | ------------------------------------- |
+| `examples/01_discovery.py` | Scan the network and list all robots  |
+| `examples/02_tree.py`      | Print the module tree                 |
+| `examples/03_servo.py`     | Move servo joints to 0° then 90°      |
+| `examples/04_rotate.py`    | Spin wheel modules for 2 seconds      |
+| `examples/05_qrcode.py`    | Connect a new robot via QR code       |
+| `examples/06_mermaid.py`   | Save module tree as a Mermaid diagram |
 
 ## Structure visualization
 

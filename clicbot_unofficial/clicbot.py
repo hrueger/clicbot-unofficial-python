@@ -233,6 +233,10 @@ class ClicBot:
         """Emergency stop all modules."""
         self._socket.send_command(CMD.TCP_FULL_STOP_REQUEST, bytes([1 if lock else 0, 0]))
 
+    def set_push_rotate(self, module_id: int, enabled: bool) -> None:
+        """Enable or disable push-rotate mode for a joint."""
+        self._socket.send_command(CMD.TCP_PUSH_ROTATE_REQUEST, bytes([module_id & 0xFF, 1 if enabled else 0]))
+
     # ── Packet dispatch ────────────────────────────────────────────────────────
 
     def _handle_packet(self, packet: TCPPacket) -> None:
