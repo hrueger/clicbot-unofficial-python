@@ -1,6 +1,7 @@
 """
 Connect to a robot, switch to custom mode, spin all wheel modules
-forward for 2 seconds, then stop.
+forward for 2 seconds, then stop the first wheel and keep the rest
+spinning for 2.5 more seconds.
 """
 
 import time
@@ -32,7 +33,7 @@ def main() -> None:
     time.sleep(2.0)
 
     print("Stopping.")
-    wheels[0].rotate_stop()  # stops all rotating modules, so just call one of them
+    wheels[0].rotate_stop()
 
     time.sleep(2.5)
     bot.disconnect()
