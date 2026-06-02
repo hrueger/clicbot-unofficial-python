@@ -1,6 +1,6 @@
 [project]
 name = "clicbot-unofficial"
-version = "1.0.2"
+version = "1.0.3"
 description = "Unofficial Python library for controlling ClicBot modular robots over TCP/UDP"
 readme = "README.md"
 license = { file = "LICENSE.md" }
